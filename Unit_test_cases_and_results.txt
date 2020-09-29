@@ -1,0 +1,135 @@
+			
+ Unit test cases:
+=================
+	1. Give text and binary inputs  and check given input written into 'input_data' file properly
+	2. For  multimedia data: //image/video/music
+		2.1 Give image file and check input_data file size and given image file size is same or now
+		2.2 Give video file and check input_data file size and given video file size is same or now
+		2.3 Give music file and check input_data file size and given music file size is same or now
+		2.4 Give invalid file name which is not exist and check whether code detect it or will break
+		2.5 Since we are using heap memory check free called for equivalent number of malloc
+		
+		
+		
+		
+
+Results:
+==========
+1. Give text and binary inputs  and check given input written into 'input_data' file properly
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
+	total 30544
+	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rwxr-xr-x 1 rajkradh  eng          13376 Sep 28 14:26 a.out
+	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
+	-rw-r--r-- 1 rajkradh  eng           2336 Sep 29 21:20 narton_code_test.c
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ gcc narton_code_test.c 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	 Is input image or video file(y/N):
+
+	....Enter text or binary input (press ctr+d if input over)...
+	copy all input from stdin
+	12324345567890101
+	!@#$%^&*(
+
+
+	 Copied data file 'ip_data_copy' detail and contents are:
+	-rw-r--r-- 1 rajkradh eng 55 Sep 29 21:23 ip_data_copy
+	copy all input from stdin
+	12324345567890101
+	!@#$%^&*(
+
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
+	total 30544
+	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rwxr-xr-x 1 rajkradh  eng          13424 Sep 29 21:22 a.out
+	-rw-r--r-- 1 rajkradh  eng             55 Sep 29 21:23 ip_data_copy
+	-rw-r--r-- 1 rajkradh  eng           2336 Sep 29 21:20 narton_code_test.c
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$	
+	
+	
+	
+2.1 Give image file and check input_data file size and given image file size is same or now
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	 Is input image or video file(y/N):y
+
+	 Enter file path (path length should not > 1024) :817_533_1.png
+	Given file sie 26025
+	-rw-r--r-- 1 nfsnobody nfsnobody 26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 rajkradh  eng       26025 Sep 29 22:17 ip_data_copy
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
+	total 30576
+	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rwxr-xr-x 1 rajkradh  eng          13536 Sep 29 22:16 a.out
+	-rw-r--r-- 1 rajkradh  eng          26025 Sep 29 22:17 ip_data_copy
+	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
+	-rw-r--r-- 1 rajkradh  eng           2233 Sep 29 22:16 narton_code_test.c
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+
+
+
+
+2.2 Give video file and check input_data file size and given video file size is same or now
+
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	 Is input image or video file(y/N):y
+
+	 Enter file path (path length should not > 1024) :Sleep_Away.mp3
+	Given file sie 4842585
+	-rw-r--r-- 1 nfsnobody nfsnobody 4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 rajkradh  eng       4842585 Sep 29 22:18 ip_data_copy
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
+	total 35296
+	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rwxr-xr-x 1 rajkradh  eng          13536 Sep 29 22:16 a.out
+	-rw-r--r-- 1 rajkradh  eng        4842585 Sep 29 22:18 ip_data_copy
+	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
+	-rw-r--r-- 1 rajkradh  eng           2233 Sep 29 22:16 narton_code_test.c
+
+
+2.3 Give music file and check input_data file size and given music file size is same or now
+
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	 Is input image or video file(y/N):y
+
+	 Enter file path (path length should not > 1024) :Wildlife.wmv
+	Given file sie 26246026
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rw-r--r-- 1 rajkradh  eng       26246026 Sep 29 22:19 ip_data_copy
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+
+
+
+2.4 Give invalid file name which is not exist and check whether code detect it or will breakrajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+
+	 Is input image or video file(y/N):y
+
+	  Enter file path (path length should not > 1024) :asdref
+
+	 ERROR: FIle asdref is not found, error 2

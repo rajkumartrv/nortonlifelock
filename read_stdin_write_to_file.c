@@ -16,10 +16,9 @@ void copy_text_n_binary_data(FILE *fp)
     }
 }
 
-
 off_t copy_image_video_data(FILE *fp)
 {
-    char *buffer = NULL;
+    char buffer[1];
     size_t bytesread = 0;
     struct stat stats;
     FILE *ifp = NULL;
@@ -31,31 +30,29 @@ off_t copy_image_video_data(FILE *fp)
         printf("\nERROR: File %s is not found, error %d \n", mdata_file, errno);
         return 0;
     }
-       // Get file size to setup buffer
+    // Get file size to setup buffer
     stat(mdata_file, &stats);
-    buffer = (char *)malloc(stats.st_size);
-    while (bytesread = fread(buffer, 1, stats.st_size, ifp)) {
+    while (bytesread = fread(buffer, 1, 1, ifp)) {
         // bytesread contains the number of bytes actually read
         if (bytesread == 0) {
           break;
         }
         fwrite(buffer, bytesread, 1, fp);
     }
-    free(buffer);
     fclose(ifp);
     return stats.st_size;
 }
 
 
 unit_test_api(off_t fsize)
-{   
+{
     char command[100];
     // For UT verifcation show the copied file
     if (fsize) {
         printf("Given file sie %ld\n", fsize);
         sprintf(command, "ls -l ip_data_copy %s", mdata_file);
     } else {
-        printf("\n Copied data file 'ip_data_copy' detail and contents are:\n");
+        printf("\n Copied file 'ip_data_copy' contents are:\n");
         sprintf(command, "ls -l ip_data_copy \n\n cat ip_data_copy");
     }
     system(command);
@@ -68,11 +65,11 @@ int main()
     char input;
     struct stat stats;
     off_t fsize;
-    
+
     fp = fopen("ip_data_copy", "wb");
     if (fp == NULL) {
         printf("\nERROR: write input to file has failed, errno %d \n", errno);
-        return -1; 
+        return -1;
     }
 
     printf("\n Is input image or video file(y/N):");
@@ -91,3 +88,4 @@ int main()
     }
     return(0);
 }
+   

@@ -34,10 +34,6 @@ off_t copy_image_video_data(FILE *fp)
        // Get file size to setup buffer
     stat(mdata_file, &stats);
     buffer = (char *)malloc(stats.st_size);
-    if (buffer == NULL) {
-        printf("\nERROR: No memory to copy file\n");
-        return 0;
-    }
     while (bytesread = fread(buffer, 1, stats.st_size, ifp)) {
         // bytesread contains the number of bytes actually read
         if (bytesread == 0) {

@@ -1,240 +1,188 @@
-			
- Unit test cases:
-=================
-	1. Give text and binary inputs  and check given input written into 'input_data' file properly
-	2. For  multimedia data: //image/video/music
-		2.1 Give image file and check input_data file size and given image file size is same or now
-		2.2 Give video file and check input_data file size and given video file size is same or now
-		2.3 Give music file and check input_data file size and given music file size is same or now
-		2.4 Give invalid file name which is not exist and check whether code detect it or will break
+Unit test cases and results:
+============================
 
-
-
-
-
-
-
-
-
-
-
-
-
-Results 2:
-==========
-
-
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ls -l   
-total 25772
--rwxrwxrwx 1 rajkradh eng     5787 Sep 30 12:03 Unit_test_cases_and_results.txt
--rwxr-xr-x 1 rajkradh eng    13440 Sep 30 15:39 a.out
--rwxrwxrwx 1 rajkradh eng 26246026 Sep 30 15:40 ip_data_copy
--rwxrwxrwx 1 rajkradh eng     2171 Sep 30 15:13 read_stdin_write_to_file.c
--rwxrwxrwx 1 rajkradh eng      100 Sep 30 15:17 run_source.sh
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ./a.out 
-
- Is input image or video file(y/N):
-
-....Enter text or binary input (press ctr+d if input over)...
-Optimize the code for scale deplyment
-9u98765432
-#@$%^&*(
-
- Copied file 'ip_data_copy' contents are:
--rwxrwxrwx 1 rajkradh eng 58 Sep 30 15:50 ip_data_copy
-Optimize the code for scale deplyment
-9u98765432
-#@$%^&*(
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ls -l ../
-total 30548
--rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
--rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
--rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
--rwxr-xr-x 1 rajkradh  eng          13536 Sep 29 22:30 a.out
--rw-r--r-- 1 rajkradh  eng              0 Sep 29 22:30 ip_data_copy
--rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
--rw-r--r-- 1 rajkradh  eng           2267 Sep 29 22:31 narton_code_test.c
-drwxr-xr-x 3 rajkradh  eng           4096 Sep 30 15:49 nortonlifelock
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ./a.out 
-
- Is input image or video file(y/N):y
-
- Enter file path (path length should not > 1024) :../817_533_1.png
-Given file sie 26025
--rw-r--r-- 1 nfsnobody nfsnobody 26025 Jul 31 16:30 ../817_533_1.png
--rwxrwxrwx 1 rajkradh  eng       26025 Sep 30 15:50 ip_data_copy
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ./a.out 
-
- Is input image or video file(y/N):y
-
- Enter file path (path length should not > 1024) :Sleep_Away.mp3
-
-ERROR: File Sleep_Away.mp3 is not found, error 2 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ./a.out 
-
- Is input image or video file(y/N):y
-
- Enter file path (path length should not > 1024) :../Sleep_Away.mp3
-Given file sie 4842585
--rw-r--r-- 1 nfsnobody nfsnobody 4842585 Jul 14  2009 ../Sleep_Away.mp3
--rwxrwxrwx 1 rajkradh  eng       4842585 Sep 30 15:51 ip_data_copy
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ ./a.out 
-
- Is input image or video file(y/N):y
-
- Enter file path (path length should not > 1024) :../Wildlife.wmv
-Given file sie 26246026
--rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 ../Wildlife.wmv
--rwxrwxrwx 1 rajkradh  eng       26246026 Sep 30 15:51 ip_data_copy
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$ 
-rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore/nortonlifelock$
-
-
-
-
-
-
-		
-		
-		
-
-Results 1:
-==========
 1. Give text and binary inputs  and check given input written into 'input_data' file properly
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
-	total 30544
-	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
-	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
-	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
-	-rwxr-xr-x 1 rajkradh  eng          13376 Sep 28 14:26 a.out
-	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
-	-rw-r--r-- 1 rajkradh  eng           2336 Sep 29 21:20 narton_code_test.c
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ gcc narton_code_test.c 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
 
-	 Is input image or video file(y/N):
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ gcc read_stdin_write_to_file.c 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-	....Enter text or binary input (press ctr+d if input over)...
-	copy all input from stdin
-	12324345567890101
-	!@#$%^&*(
+		 Is input image, video or music file(y/N): 
+
+		 Enter data (press ctr+d if input over):
+		Optimize the code for release                                     
+		007 123456788 010101010
+		((*&&^^%%$#@!@!@#$%^&*
+
+		 Copied file 'ip_data_copy' contents are:
+		-rw-r--r-- 1 rajkradh eng 77 Oct  1 17:23 ip_data_copy
+		Optimize the code for release
+		007 123456788 010101010
+		((*&&^^%%$#@!@!@#$%^&*
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ls -l
+		total 36
+		-rw-r--r-- 1 rajkradh eng  9576 Oct  1 17:20 Unit_test_cases_and_results.txt
+		-rwxr-xr-x 1 rajkradh eng 13240 Oct  1 17:22 a.out
+		-rw-r--r-- 1 rajkradh eng    77 Oct  1 17:23 ip_data_copy
+		-rw-r--r-- 1 rajkradh eng  1735 Oct  1 17:21 read_stdin_write_to_file.c
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 
 
-	 Copied data file 'ip_data_copy' detail and contents are:
-	-rw-r--r-- 1 rajkradh eng 55 Sep 29 21:23 ip_data_copy
-	copy all input from stdin
-	12324345567890101
-	!@#$%^&*(
-
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
-	total 30544
-	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
-	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
-	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
-	-rwxr-xr-x 1 rajkradh  eng          13424 Sep 29 21:22 a.out
-	-rw-r--r-- 1 rajkradh  eng             55 Sep 29 21:23 ip_data_copy
-	-rw-r--r-- 1 rajkradh  eng           2336 Sep 29 21:20 narton_code_test.c
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$	
-	
-	
-	
 2.1 Give image file and check input_data file size and given image file size is same or now
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+		
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ls -l ../cExplore/
+		total 30548
+		-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+		-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+		-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+		-rwxr-xr-x 1 rajkradh  eng           8800 Oct  1 13:36 a.out
+		-rw-r--r-- 1 rajkradh  eng             16 Oct  1 13:37 ip_data_copy
+		-rw-r--r-- 1 rajkradh  eng            738 Oct  1 13:36 main.c
+		-rw-r--r-- 1 rajkradh  eng           2267 Sep 29 22:31 narton_code_test.c
+		drwxr-xr-x 3 rajkradh  eng           4096 Oct  1 17:19 nortonlifelock
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-	 Is input image or video file(y/N):y
+		 Is input image, video or music file(y/N):y
 
-	 Enter file path (path length should not > 1024) :817_533_1.png
-	Given file sie 26025
-	-rw-r--r-- 1 nfsnobody nfsnobody 26025 Jul 31 16:30 817_533_1.png
-	-rw-r--r-- 1 rajkradh  eng       26025 Sep 29 22:17 ip_data_copy
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
-	total 30576
-	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
-	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
-	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
-	-rwxr-xr-x 1 rajkradh  eng          13536 Sep 29 22:16 a.out
-	-rw-r--r-- 1 rajkradh  eng          26025 Sep 29 22:17 ip_data_copy
-	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
-	-rw-r--r-- 1 rajkradh  eng           2233 Sep 29 22:16 narton_code_test.c
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+		 Enter file path (path length should not > 512):t^C
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ vim read_stdin_write_to_file.c 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ gcc read_stdin_write_to_file.c 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
+		 Is input image, video or music file(y/N):y
 
+		 Enter file path (path length should not > 512):../cExplore/817_533_1.png
+		Given file sie is 26025 and find copied file detail below 
+		-rw-r--r-- 1 nfsnobody nfsnobody 26025 Jul 31 16:30 ../cExplore/817_533_1.png
+		-rw-r--r-- 1 rajkradh  eng       26025 Oct  1 17:25 ip_data_copy
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 
 
 2.2 Give video file and check input_data file size and given video file size is same or now
 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-	 Is input image or video file(y/N):y
+		 Is input image, video or music file(y/N):y
 
-	 Enter file path (path length should not > 1024) :Sleep_Away.mp3
-	Given file sie 4842585
-	-rw-r--r-- 1 nfsnobody nfsnobody 4842585 Jul 14  2009 Sleep_Away.mp3
-	-rw-r--r-- 1 rajkradh  eng       4842585 Sep 29 22:18 ip_data_copy
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ls -l
-	total 35296
-	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
-	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
-	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
-	-rwxr-xr-x 1 rajkradh  eng          13536 Sep 29 22:16 a.out
-	-rw-r--r-- 1 rajkradh  eng        4842585 Sep 29 22:18 ip_data_copy
-	-rw-r--r-- 1 rajkradh  eng              0 Aug 24 00:10 main.c
-	-rw-r--r-- 1 rajkradh  eng           2233 Sep 29 22:16 narton_code_test.c
+		 Enter file path (path length should not > 512):../cExplore/Sleep_Away.mp3
+		Given file sie is 4842585 and find copied file detail below 
+		-rw-r--r-- 1 nfsnobody nfsnobody 4842585 Jul 14  2009 ../cExplore/Sleep_Away.mp3
+		-rw-r--r-- 1 rajkradh  eng       4842585 Oct  1 17:25 ip_data_copy
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ls -l ../cExplore/
+		total 30548
+		-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+		-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+		-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+		-rwxr-xr-x 1 rajkradh  eng           8800 Oct  1 13:36 a.out
+		-rw-r--r-- 1 rajkradh  eng             16 Oct  1 13:37 ip_data_copy
+		-rw-r--r-- 1 rajkradh  eng            738 Oct  1 13:36 main.c
+		-rw-r--r-- 1 rajkradh  eng           2267 Sep 29 22:31 narton_code_test.c
+		drwxr-xr-x 3 rajkradh  eng           4096 Oct  1 17:19 nortonlifelock
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+
+
 
 
 2.3 Give music file and check input_data file size and given music file size is same or now
+		
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+		 Is input image, video or music file(y/N):y
 
-	 Is input image or video file(y/N):y
-
-	 Enter file path (path length should not > 1024) :Wildlife.wmv
-	Given file sie 26246026
-	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
-	-rw-r--r-- 1 rajkradh  eng       26246026 Sep 29 22:19 ip_data_copy
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ 
+		 Enter file path (path length should not > 512):../cExplore/Wildlife.wmv
+		Given file sie is 26246026 and find copied file detail below 
+		-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 ../cExplore/Wildlife.wmv
+		-rw-r--r-- 1 rajkradh  eng       26246026 Oct  1 17:26 ip_data_copy
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 
 
+2.4 Give invalid file name which is not exist and check whether code detect it or will break
+		
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-2.4 Give invalid file name which is not exist and check whether code detect it or will breakrajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+		 Is input image, video or music file(y/N):y
 
-	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/cExplore$ ./a.out 
+		 Enter file path (path length should not > 512):world_map.jpeg
 
-	 Is input image or video file(y/N):y
+		 ERROR: Given file 'world_map.jpeg' is not found, errno 2 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ ./a.out 
 
-	  Enter file path (path length should not > 1024) :asdref
+		 Is input image, video or music file(y/N):y
 
-	 ERROR: FIle asdref is not found, error 2
+		 Enter file path (path length should not > 512):mossard.mp3
+
+		 ERROR: Given file 'mossard.mp3' is not found, errno 2 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 
 
 
 
 
+Commit process:
+================
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+		modified:   read_stdin_write_to_file.c
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+
+		a.out
+		ip_data_copy
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ git add read_stdin_write_to_file.c
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+
+	Changes to be committed:
+	  (use "git reset HEAD <file>..." to unstage)
+
+		modified:   read_stdin_write_to_file.c
+
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ git commit
+	[master 2e2d1d9] BugID: 20201001-Optimze code for release
+	 1 file changed, 36 insertions(+), 61 deletions(-)
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ git push -u origin refs/heads/master
+	Username for 'https://github.com': rajkumargandhi@live.com
+	Password for 'https://rajkumargandhi@live.com@github.com': 
+	Enumerating objects: 5, done.
+	Counting objects: 100% (5/5), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 771 bytes | 154.00 KiB/s, done.
+	Total 3 (delta 2), reused 0 (delta 0)
+	remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+	To https://github.com/rajkumartrv/nortonlifelock.git
+	   87f43dc..2e2d1d9  master -> master
+	Branch 'master' set up to track remote branch 'master' from 'origin'.
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 

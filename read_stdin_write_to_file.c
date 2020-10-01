@@ -1,55 +1,15 @@
-#include <errno.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
+#include <errno.h>
 
-char mdata_file[1024];
+char mdata_file[512];
 
-void copy_text_n_binary_data(FILE *fp)
-{
-    char input;
-    printf("\n....Enter text or binary input (press ctr+d if input over)...\n");
-    while ((input = fgetc(stdin)) != EOF) {
-        fputc(input, fp);
-    }
-}
-
-off_t copy_image_video_data(FILE *fp)
-{
-    char buffer[1];
-    size_t bytesread = 0;
-    struct stat stats;
-    FILE *ifp = NULL;
-
-    printf("\n Enter file path (path length should not > 1024) :");
-    scanf("%s", mdata_file);
-    ifp = fopen(mdata_file, "rb");
-    if (ifp == NULL) {
-        printf("\nERROR: File %s is not found, error %d \n", mdata_file, errno);
-        return 0;
-    }
-    // Get file size to setup buffer
-    stat(mdata_file, &stats);
-    while (bytesread = fread(buffer, 1, 1, ifp)) {
-        // bytesread contains the number of bytes actually read
-        if (bytesread == 0) {
-          break;
-        }
-        fwrite(buffer, bytesread, 1, fp);
-    }
-    fclose(ifp);
-    return stats.st_size;
-}
-
-
-unit_test_api(off_t fsize)
+void unit_test_api(off_t fsize)
 {
     char command[100];
     // For UT verifcation show the copied file
     if (fsize) {
-        printf("Given file sie %ld\n", fsize);
+        printf("Given file sie is %ld and find copied file detail below \n", fsize);
         sprintf(command, "ls -l ip_data_copy %s", mdata_file);
     } else {
         printf("\n Copied file 'ip_data_copy' contents are:\n");
@@ -61,31 +21,46 @@ unit_test_api(off_t fsize)
 
 int main()
 {
-    FILE *fp = NULL;
     char input;
+    char buffer[1];
+    size_t bytesread = 0;
     struct stat stats;
-    off_t fsize;
+    FILE *fp = NULL;
+    FILE *ifp = stdin;
+
+    printf("\n Is input image, video or music file(y/N):");
+    scanf("%c", &input);
+    // Get file name incase multimedia data
+    if (input == 'y') {
+        printf("\n Enter file path (path length should not > 512):");
+        scanf("%s", mdata_file);
+        ifp = fopen(mdata_file, "rb");
+        if (ifp == NULL) {
+            printf("\n ERROR: Given file '%s' is not found, errno %d \n", mdata_file, errno);
+            return 0;
+        }
+    } else {
+        printf("\n Enter data (press ctr+d if input over):\n");
+    }
 
     fp = fopen("ip_data_copy", "wb");
     if (fp == NULL) {
-        printf("\nERROR: write input to file has failed, errno %d \n", errno);
-        return -1;
+        printf("\n ERROR: File 'ip_data_copy' open has failed to copy data, errno %d \n", errno);
+        return 0;
     }
 
-    printf("\n Is input image or video file(y/N):");
-    scanf("%c", &input);
-    // Distinguish input to read the text, binary or multimedia data
-    if (input == 'y') {
-        fsize = copy_image_video_data(fp);
-        fclose(fp);
-        if (fsize) {
-            unit_test_api(fsize);
+    while (bytesread = fread(buffer, 1, 1, ifp)) {
+        // bytesread contains the number of bytes actually read
+        if (bytesread == 0) {
+          break;
         }
-    } else {
-        copy_text_n_binary_data(fp);
-        fclose(fp);
-        unit_test_api(0);
+        fwrite(buffer, bytesread, 1, fp);
     }
+    fclose(fp);
+    fclose(ifp);
+
+    //UT
+    stat(mdata_file, &stats);
+    unit_test_api(stats.st_size);
     return(0);
 }
-   

@@ -1,3 +1,11 @@
+/*
+ * In this program, handled text, binary, multimedia (image, video, music) input data via STDIN,
+ * copied input data into file "ip_data_copy".
+ * 
+ * If not input is only text or binary then read them via STDIN otherwise get the file path of
+ * multimedia file and copy into ip_data_copy.
+ */
+
 #include <stdio.h>
 #include <sys/stat.h>
 #include <errno.h>
@@ -16,7 +24,6 @@ void unit_test_api(off_t fsize)
         snprintf(command, sizeof(command), "ls -l ip_data_copy \n\n cat ip_data_copy");
     }
     system(command);
-
 }
 
 int main()
@@ -65,5 +72,5 @@ int main()
     //UT
     stat(mdata_file, &stats);
     unit_test_api(stats.st_size);
-    return(0);
+    return 0;
 }

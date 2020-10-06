@@ -186,3 +186,100 @@ Commit process:
 	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 	rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+
+
+
+Unit test on 2020/10/06:
+========================
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ls -l
+total 30584
+-rw-r--r-- 1 rajkradh eng    26025 Oct  6 22:27 817_533_1.png
+-rw-r--r-- 1 rajkradh eng  4842585 Oct  6 22:27 Sleep_Away.mp3
+-rw-r--r-- 1 rajkradh eng     8124 Oct  1 18:07 Unit_test_cases_and_results.txt
+-rw-r--r-- 1 rajkradh eng 26246026 Oct  6 22:27 Wildlife.wmv
+-rwxr-xr-x 1 rajkradh eng    13160 Oct  6 22:32 a.out
+-rw-r--r-- 1 rajkradh eng    26025 Oct  6 22:32 ip_data_copy
+-rw-r--r-- 1 rajkradh eng     1839 Oct  6 22:40 read_stdin_write_to_file.c
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > gcc read_stdin_write_to_file.c 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ./a.out 
+
+ Is input image, video or music file(y/N):y
+
+ Enter file path (path length should not > 512):817_533_1.png
+Given file size is 26025 and find copied file detail below 
+-rw-r--r-- 1 rajkradh eng 26025 Oct  6 22:27 817_533_1.png
+-rw-r--r-- 1 rajkradh eng 26025 Oct  6 22:56 ip_data_copy
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > y
+bash: y: command not found
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ./a.out 
+
+ Is input image, video or music file(y/N):y
+
+ Enter file path (path length should not > 512):Sleep_Away.mp3
+Given file size is 4842585 and find copied file detail below 
+-rw-r--r-- 1 rajkradh eng 4842585 Oct  6 22:27 Sleep_Away.mp3
+-rw-r--r-- 1 rajkradh eng 4842585 Oct  6 22:57 ip_data_copy
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ./a.out 
+
+ Is input image, video or music file(y/N):y
+
+ Enter file path (path length should not > 512):Wildlife.wmv
+Given file size is 26246026 and find copied file detail below 
+-rw-r--r-- 1 rajkradh eng 26246026 Oct  6 22:27 Wildlife.wmv
+-rw-r--r-- 1 rajkradh eng 26246026 Oct  6 22:57 ip_data_copy
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ./a.out 
+
+ Is input image, video or music file(y/N):
+
+ Enter data (press ctr+d if input over):
+Release code to millon system                
+100000 deployment and 12324565768    
+)((**&^%%$#@
+
+ Copied file 'ip_data_copy' contents are:
+-rw-r--r-- 1 rajkradh eng 77 Oct  6 22:58 ip_data_copy
+Release code to millon system
+100000 deployment and 12324565768
+)((**&^%%$#@
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ls -l
+total 30556
+-rw-r--r-- 1 rajkradh eng    26025 Oct  6 22:27 817_533_1.png
+-rw-r--r-- 1 rajkradh eng  4842585 Oct  6 22:27 Sleep_Away.mp3
+-rw-r--r-- 1 rajkradh eng     8124 Oct  1 18:07 Unit_test_cases_and_results.txt
+-rw-r--r-- 1 rajkradh eng 26246026 Oct  6 22:27 Wildlife.wmv
+-rwxr-xr-x 1 rajkradh eng    13160 Oct  6 22:56 a.out
+-rw-r--r-- 1 rajkradh eng       77 Oct  6 22:58 ip_data_copy
+-rw-r--r-- 1 rajkradh eng     1839 Oct  6 22:40 read_stdin_write_to_file.c
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > cat ip_data_copy 
+Release code to millon system
+100000 deployment and 12324565768
+)((**&^%%$#@
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+
+bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > ./a.out 
+
+ Is input image, video or music file(y/N):y
+
+  Enter file path (path length should not > 512):baby-image.png
+
+   ERROR: Given file 'baby-image.png' is not found, errno 2 
+   bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 
+   bgl-ads-2932:/ws/rajkradh-bgl/norton_dev > 

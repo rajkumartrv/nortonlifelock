@@ -131,6 +131,107 @@ Unit test cases and results:
 		rajkradh@bgl-vms-vm1054:/ws/rajkradh-bgl/norton_dev$ 
 
 
+2.5 Check Binary file:
+=======================
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -l
+total 20
+-rw-r--r-- 1 rajkradh eng 11958 Oct  9 20:13 Unit_test_cases_and_results.txt
+drwxrwxrwx 3 rajkradh eng  4096 Oct 11 16:29 cExplore
+-rw-r--r-- 1 rajkradh eng     0 Oct 11 17:10 ip_data_copy
+-rw-r--r-- 1 rajkradh eng  2264 Oct 11 17:36 read_stdin_write_to_file.c
+lrwxrwxrwx 1 rajkradh eng     8 Oct 11 17:08 test -> test.txt
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ gcc read_stdin_write_to_file.c -o norton
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ norton
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):test
+
+ ERROR: Given input file 'test' is not found, errno 2 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -l /usr/bin/mkdir
+-rwxr-xr-x 1 root root 79864 Mar 15  2019 /usr/bin/mkdir
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ norton
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):/usr/bin/mkdir
+Given file size is 79864 and find copied file detail below 
+-rwxr-xr-x 1 root     root 79864 Mar 15  2019 /usr/bin/mkdir
+-rw-r--r-- 1 rajkradh eng  79864 Oct 11 17:43 ip_data_copy
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ip_data_copy
+ip_data_copy: missing operand
+Try 'ip_data_copy --help' for more information.
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ip_data_copy --help
+Usage: ip_data_copy [OPTION]... DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -m, --mode=MODE   set file mode (as in chmod), not a=rwx - umask
+  -p, --parents     no error if existing, make parent directories as needed
+  -v, --verbose     print a message for each created directory
+  -Z                   set SELinux security context of each created directory
+                         to the default type
+      --context[=CTX]  like -Z, or if CTX is specified then set the SELinux
+                         or SMACK security context to CTX
+      --help     display this help and exit
+      --version  output version information and exit
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Report ip_data_copy translation bugs to <http://translationproject.org/team/>
+For complete documentation, run: info coreutils 'ip_data_copy invocation'
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ mkdir --help
+Usage: mkdir [OPTION]... DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -m, --mode=MODE   set file mode (as in chmod), not a=rwx - umask
+  -p, --parents     no error if existing, make parent directories as needed
+  -v, --verbose     print a message for each created directory
+  -Z                   set SELinux security context of each created directory
+                         to the default type
+      --context[=CTX]  like -Z, or if CTX is specified then set the SELinux
+                         or SMACK security context to CTX
+      --help     display this help and exit
+      --version  output version information and exit
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Report mkdir translation bugs to <http://translationproject.org/team/>
+For complete documentation, run: info coreutils 'mkdir invocation'
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ l s-l
+ls: cannot access s-l: No such file or directory
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -l
+total 120
+-rw-r--r-- 1 rajkradh eng 11958 Oct  9 20:13 Unit_test_cases_and_results.txt
+drwxrwxrwx 3 rajkradh eng  4096 Oct 11 16:29 cExplore
+-rwxrwxrwx 1 rajkradh eng 79864 Oct 11 17:43 ip_data_copy
+-rwxr-xr-x 1 rajkradh eng 13160 Oct 11 17:41 norton
+-rw-r--r-- 1 rajkradh eng  2264 Oct 11 17:36 read_stdin_write_to_file.c
+lrwxrwxrwx 1 rajkradh eng     8 Oct 11 17:08 test -> test.txt
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+2.6 Check invalid file:
+=========================
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ norton 
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):test
+
+ ERROR: Given input file 'test' is not found, errno 2 
+fopen: No such file or directory
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
 
 
 

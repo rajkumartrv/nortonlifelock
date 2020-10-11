@@ -1,13 +1,15 @@
 /*
- * In this program, handled text, binary, multimedia (image, video, music) input data via STDIN,
- * copied input data into file "ip_data_copy".
- * 
- * If not input is only text or binary then read them via STDIN otherwise get the file path of
- * multimedia file and copy into ip_data_copy.
+ * In this program, handled arbitrary input data via STDIN,
+ *  and copied them into file "ip_data_copy".
+ *
+ * If the input is only text then read them via STDIN otherwise get the file path of
+ *  binary, image, video, or music file and copy into ip_data_copy.
  */
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include <errno.h>
 
 char mdata_file[512];
@@ -35,23 +37,27 @@ int main()
     FILE *fp = NULL;
     FILE *ifp = stdin;
 
+    // Overwrite if file exist
     fp = fopen("ip_data_copy", "wb");
     if (fp == NULL) {
-        printf("\n ERROR: File 'ip_data_copy' open has failed to copy data,"
+        printf("\n ERROR: File 'ip_data_copy' open has failed to copy input data,"
                " errno %d \n", errno);
+        perror("fopen");
         return 0;
     }
 
-    printf("\n Is input image, video or music file(y/N):");
+    printf("\n Is input data binary, image, video, or music file(y/N):");
     scanf("%c", &input);
-    // Get file name if input is multimedia data
     if (input == 'y') {
+        // Get file path of input data
         printf("\n Enter file path (path length should not > 512):");
         scanf("%s", mdata_file);
         ifp = fopen(mdata_file, "rb");
         if (ifp == NULL) {
-            printf("\n ERROR: Given file '%s' is not found, errno %d \n",
+            printf("\n ERROR: Given input file '%s' is not found, errno %d \n",
                     mdata_file, errno);
+            perror("fopen");
+            // Close already opened descriptor
             fclose(fp);
             return 0;
         }
@@ -60,7 +66,7 @@ int main()
     }
 
     while (bytesread = fread(buffer, 1, 1, ifp)) {
-        // bytesread contains the number of bytes actually read
+        // To check EOF as it contains the number of bytes read
         if (bytesread == 0) {
           break;
         }

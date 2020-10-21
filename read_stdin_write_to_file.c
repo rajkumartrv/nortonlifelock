@@ -14,25 +14,11 @@
 
 char mdata_file[512];
 
-void unit_test_api(off_t fsize)
-{
-    char command[100];
-    // For UT verification show the copied file
-    if (fsize) {
-        printf("Given file size is %ld and find copied file detail below \n", fsize);
-        snprintf(command, sizeof(command), "ls -l ip_data_copy %s", mdata_file);
-    } else {
-        printf("\n Copied file 'ip_data_copy' contents are:\n");
-        snprintf(command, sizeof(command), "ls -l ip_data_copy \n\n cat ip_data_copy");
-    }
-    system(command);
-}
-
 int main()
 {
     char input;
     char buffer[1];
-    size_t bytesread = 0;
+    register size_t bytesread = 0;
     struct stat stats;
     FILE *fp = NULL;
     FILE *ifp = stdin;
@@ -65,18 +51,22 @@ int main()
         printf("\n Enter data (press ctr+d if input over):\n");
     }
 
-    while (bytesread = fread(buffer, 1, 1, ifp)) {
-        // To check EOF as it contains the number of bytes read
-        if (bytesread == 0) {
-          break;
-        }
+    while ((bytesread = fread(buffer, 1, 1, ifp)) != 0) {
         fwrite(buffer, bytesread, 1, fp);
     }
     fclose(fp);
     fclose(ifp);
 
-    //UT
+    // For UT verification show the copied file
     stat(mdata_file, &stats);
-    unit_test_api(stats.st_size);
+    char command[128];
+    if (stats.st_size) {
+        printf("Given file size is %ld and find copied file details below \n", stats.st_size);
+        snprintf(command, sizeof(command), "ls -l ip_data_copy %s", mdata_file);
+    } else {
+        printf("\n Copied file 'ip_data_copy' contents are:\n");
+        snprintf(command, sizeof(command), "ls -l ip_data_copy \n\n cat ip_data_copy");
+    }
+    system(command);
     return 0;
 }

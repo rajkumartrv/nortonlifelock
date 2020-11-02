@@ -1,0 +1,188 @@
+1. Check STDIN:
+=================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -lrt
+	total 32
+	-rw-r--r-- 1 rajkradh eng 16910 Oct 11 18:28 ut_file_io_using_clibrary.txt
+	drwxrwxrwx 3 rajkradh eng  4096 Nov  2 17:26 test_files
+	-rw-r--r-- 1 rajkradh eng  3653 Nov  2 17:52 file_io_using_syscall.c
+	-rw-r--r-- 1 rajkradh eng  2188 Nov  2 17:55 file_io_using_clibrary.c
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ gcc file_io_using_syscall.c -o norton_sys
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):
+
+	 Enter data (If input over, press ctr+d or (ctr+z if your system is windows)):
+	kmkjncdscs
+	232332441242
+	)(*&^%$#@#$%^
+
+
+	0
+	1
+
+	 Copied file 'ip_data_copy' contents are:
+	-rwxr-xr-x 1 rajkradh eng 44 Nov  2 17:58 ip_data_copy
+	kmkjncdscs
+	232332441242
+	)(*&^%$#@#$%^
+
+
+	0
+	1
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ cat ip_data_copy 
+	kmkjncdscs
+	232332441242
+	)(*&^%$#@#$%^
+
+
+	0
+	1
+
+
+	
+2. Check invalid file:
+============================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):y
+
+	 Enter file path (path length should not > 512):world-map.jpeg
+
+	 ERROR: Given input file 'world-map.jpeg' is not found, errno 2 
+	read_stdin_write_to_file: No such file or directory
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+3. Check system binary file:
+==============================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):y
+
+	 Enter file path (path length should not > 512):/usr/bin/mkdir
+
+	Size of input file /usr/bin/mkdir is 79864 
+
+	File copy was successful, with 79864 byte copied
+	-rwxr-xr-x 1 root     root 79864 Mar 15  2019 /usr/bin/mkdir
+	-rwxr-xr-x 1 rajkradh eng  79864 Nov  2 17:59 ip_data_copy
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ip_data_copy
+	ip_data_copy: missing operand
+	Try 'ip_data_copy --help' for more information.
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ip_data_copy --help
+	Usage: ip_data_copy [OPTION]... DIRECTORY...
+	Create the DIRECTORY(ies), if they do not already exist.
+
+	Mandatory arguments to long options are mandatory for short options too.
+	  -m, --mode=MODE   set file mode (as in chmod), not a=rwx - umask
+	  -p, --parents     no error if existing, make parent directories as needed
+	  -v, --verbose     print a message for each created directory
+	  -Z                   set SELinux security context of each created directory
+							 to the default type
+		  --context[=CTX]  like -Z, or if CTX is specified then set the SELinux
+							 or SMACK security context to CTX
+		  --help     display this help and exit
+		  --version  output version information and exit
+
+	GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+	Report ip_data_copy translation bugs to <http://translationproject.org/team/>
+	For complete documentation, run: info coreutils 'ip_data_copy invocation'
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -lrt
+	total 148
+	-rw-r--r-- 1 rajkradh eng 16910 Oct 11 18:28 ut_file_io_using_clibrary.txt
+	drwxrwxrwx 3 rajkradh eng  4096 Nov  2 17:26 test_files
+	-rw-r--r-- 1 rajkradh eng  3653 Nov  2 17:52 file_io_using_syscall.c
+	-rw-r--r-- 1 rajkradh eng  2188 Nov  2 17:55 file_io_using_clibrary.c
+	-rwxr-xr-x 1 rajkradh eng 13264 Nov  2 17:57 a.out
+	-rwxr-xr-x 1 rajkradh eng 13264 Nov  2 17:57 norton_sys
+	-rwxr-xr-x 1 rajkradh eng 79864 Nov  2 17:59 ip_data_copy
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+
+4. Check image file:
+========================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -l test_files/
+	total 30548
+	-rw-r--r-- 1 nfsnobody nfsnobody    26025 Jul 31 16:30 817_533_1.png
+	-rw-r--r-- 1 nfsnobody nfsnobody  4842585 Jul 14  2009 Sleep_Away.mp3
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 Wildlife.wmv
+	-rwxr-xr-x 1 rajkradh  eng           8800 Oct  1 13:36 a.out
+	-rw-r--r-- 1 rajkradh  eng             16 Oct  1 13:37 ip_data_copy
+	-rw-r--r-- 1 rajkradh  eng            738 Oct  1 13:36 main.c
+	-rw-r--r-- 1 rajkradh  eng           2267 Sep 29 22:31 narton_code_test.c
+	drwxr-xr-x 3 rajkradh  eng           4096 Oct  1 17:19 nortonlifelock
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):y
+
+	 Enter file path (path length should not > 512):test_files/817_533_1.png
+
+	Size of input file test_files/817_533_1.png is 26025 
+
+	File copy was successful, with 26025 byte copied
+	-rwxr-xr-x 1 rajkradh  eng       26025 Nov  2 18:00 ip_data_copy
+	-rw-r--r-- 1 nfsnobody nfsnobody 26025 Jul 31 16:30 test_files/817_533_1.png
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+
+5. Check music file:
+=====================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):y
+
+	 Enter file path (path length should not > 512):test_files/Sleep_Away.mp3
+
+	Size of input file test_files/Sleep_Away.mp3 is 4842585 
+
+	File copy was successful, with 4842585 byte copied
+	-rwxr-xr-x 1 rajkradh  eng       4842585 Nov  2 18:00 ip_data_copy
+	-rw-r--r-- 1 nfsnobody nfsnobody 4842585 Jul 14  2009 test_files/Sleep_Away.mp3
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+
+
+6. Check video file :
+=======================
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./norton_sys
+
+	 Is input data binary, image, video, or music file(y/N):y
+
+	 Enter file path (path length should not > 512):test_files/Wildlife.wmv
+
+	Size of input file test_files/Wildlife.wmv is 26246026 
+
+	File copy was successful, with 26246026 byte copied
+	-rwxr-xr-x 1 rajkradh  eng       26246026 Nov  2 18:01 ip_data_copy
+	-rw-r--r-- 1 nfsnobody nfsnobody 26246026 Jul 14  2009 test_files/Wildlife.wmv
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ls -lrt
+	total 25804
+	-rw-r--r-- 1 rajkradh eng    16910 Oct 11 18:28 ut_file_io_using_clibrary.txt
+	drwxrwxrwx 3 rajkradh eng     4096 Nov  2 17:26 test_files
+	-rw-r--r-- 1 rajkradh eng     3653 Nov  2 17:52 file_io_using_syscall.c
+	-rw-r--r-- 1 rajkradh eng     2188 Nov  2 17:55 file_io_using_clibrary.c
+	-rwxr-xr-x 1 rajkradh eng    13264 Nov  2 17:57 a.out
+	-rwxr-xr-x 1 rajkradh eng    13264 Nov  2 17:57 norton_sys
+	-rwxr-xr-x 1 rajkradh eng 26246026 Nov  2 18:01 ip_data_copy
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 

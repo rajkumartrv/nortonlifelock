@@ -20,12 +20,12 @@ int main()
     char buffer[1];
     register size_t bytesread = 0;
     struct stat stats;
-    FILE *fp = NULL;
-    FILE *ifp = stdin;
+    FILE *writer = NULL;
+    FILE *reader = stdin;
 
     // Overwrite if file exist
-    fp = fopen("ip_data_copy", "wb");
-    if (fp == NULL) {
+    writer = fopen("ip_data_copy", "wb");
+    if (writer == NULL) {
         printf("\n ERROR: File 'ip_data_copy' open has failed to copy input data,"
                " errno %d \n", errno);
         perror("fopen");
@@ -38,24 +38,25 @@ int main()
         // Get file path of input data
         printf("\n Enter file path (path length should not > 512):");
         scanf("%s", mdata_file);
-        ifp = fopen(mdata_file, "rb");
-        if (ifp == NULL) {
+        reader = fopen(mdata_file, "rb");
+        if (reader == NULL) {
             printf("\n ERROR: Given input file '%s' is not found, errno %d \n",
                     mdata_file, errno);
             perror("fopen");
             // Close already opened descriptor
-            fclose(fp);
+            fclose(writer);
             return 0;
         }
     } else {
-        printf("\n Enter data (press ctr+d if input over):\n");
+        printf("\n Enter data (If input over, press ctr+d or "
+                "(ctr+z if your system is windows)):\n");
     }
 
-    while ((bytesread = fread(buffer, 1, 1, ifp)) != 0) {
-        fwrite(buffer, bytesread, 1, fp);
+    while ((bytesread = fread(buffer, 1, 1, reader)) != 0) {
+        fwrite(buffer, bytesread, 1, writer);
     }
-    fclose(fp);
-    fclose(ifp);
+    fclose(writer);
+    fclose(reader);
 
     // For UT verification show the copied file
     stat(mdata_file, &stats);

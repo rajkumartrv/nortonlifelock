@@ -35,8 +35,10 @@ void copy_input_file(int reader, int writer, size_t len)
         printf("\n Memory failure to copy file\n");
         return;
     }
-    bytesread = read(reader, buffer, len);
-    write(writer, buffer, bytesread);// < 0 && errno == EINTR);
+    while((bytesread = read(reader, buffer, len)) < 0 && (errno == EINTR))
+        ;//retry in case cpu cycle not available
+    while((write(writer, buffer, bytesread)) < 0 && (errno == EINTR))
+        ;//retry in case cpu cycle not available
     free(buffer);
 }
 
@@ -103,11 +105,11 @@ int main()
     close(writer);
 
     // For UT verification show the copied file
-    stat("ip_data_copy", &stat_wr);
     char command[128];
-    if (stat_rd.st_size) {
+    if (reader != 0) {
+        stat("ip_data_copy", &stat_wr);
         printf("\nSize of input file %s is %ld ", input_file, stat_rd.st_size);
-        printf("\nFile copy was successful, with %d byte copied\n", stat_wr.st_size);
+        printf("\nFile copy was successful, with %ld byte copied\n", stat_wr.st_size);
         snprintf(command, sizeof(command), "ls -l ip_data_copy %s", input_file);
     } else {
         printf("\n Copied file 'ip_data_copy' contents are:\n");

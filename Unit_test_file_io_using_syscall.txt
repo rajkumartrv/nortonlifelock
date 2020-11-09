@@ -186,3 +186,51 @@
 	-rwxr-xr-x 1 rajkradh eng 26246026 Nov  2 18:01 ip_data_copy
 	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
 	rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+
+
+
+Latest UT - 2020-Nov-09
+========================
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ gcc file_io_using_syscall.c
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./a.out 
+
+ Is input data binary, image, video, or music file(y/N):
+
+ Enter data (If input over, press ctr+d or (ctr+z if your system is windows)):
+check error condition of memory allocated and incase CPU cycle not available
+1123345566
+!@##
+
+ Copied file 'ip_data_copy' contents are:
+-rwxr-xr-x 1 rajkradh eng 93 Nov  9 19:43 ip_data_copy
+check error condition of memory allocated and incase CPU cycle not available
+1123345566
+!@##
+
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./a.out 
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):/nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB
+
+Size of input file /nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB is 411244048 
+File copy was successful, with 411244048 byte copied
+-rw-r--r-- 1 rajkradh eng 411244048 Nov  9 17:05 /nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB
+-rwxr-xr-x 1 rajkradh eng 411244048 Nov  9 19:43 ip_data_copy
+
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ vim file_io_using_syscall.c
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ gcc file_io_using_syscall.c
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./a.out 
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):/nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB
+
+Size of input file /nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB is 411244048 
+File copy was successful, with 411244048 byte copied
+-rw-r--r-- 1 rajkradh eng 393M Nov  9 17:05 /nobackup/rajkradh/test/cisco-asa-fp1k.99.15.2.40.SSB
+-rwxr-xr-x 1 rajkradh eng 393M Nov  9 19:44 ip_data_copy
+
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$

@@ -192,19 +192,7 @@
 Latest UT - 2020-Nov-09
 ========================
 rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ gcc file_io_using_syscall.c
-rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$
 rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./a.out 
-
- Is input data binary, image, video, or music file(y/N):y
-
- Enter file path (path length should not > 512):/nobackup/rajkradh/cpio.tar.bz2
-
-Size of input file /nobackup/rajkradh/cpio.tar.bz2 is 1668210268 
-File copy was successful, with 1668210268 byte copied
--rw-r--r-- 1 rajkradh eng 1.6G Nov  9 19:53 /nobackup/rajkradh/cpio.tar.bz2
--rwxr-xr-x 1 rajkradh eng 1.6G Nov  9 20:00 ip_data_copy
-
-rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$./a.out 
 
  Is input data binary, image, video, or music file(y/N):
 
@@ -245,4 +233,12 @@ File copy was successful, with 411244048 byte copied
 -rwxr-xr-x 1 rajkradh eng 393M Nov  9 19:44 ip_data_copy
 
 rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ 
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$
+rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$ ./a.out
+
+ Is input data binary, image, video, or music file(y/N):y
+
+ Enter file path (path length should not > 512):/nobackup/rajkradh/desmo_rax9-14-1-226.vhd
+
+ Failed: memory required 91006424099 but allocated  0
 rajkradh@bgl-ads-2932:/ws/rajkradh-bgl/norton_dev$

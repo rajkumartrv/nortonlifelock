@@ -37,11 +37,11 @@ void copy_input_file(int reader, int writer, size_t file_size)
     alloc_size = malloc_usable_size((void *)buffer);
     if ((buffer == NULL) || (alloc_size < file_size)) {
         printf("\n Failed: memory required %ld but"
-                " allocated  %ld\n", file_size, alloc_size);
-        if (alloc_size < file_size) {
+                " allocated  %ld\n\n", file_size, alloc_size);
+        if (alloc_size && (alloc_size < file_size)) {
             free(buffer);
         }
-        return;
+        exit(0);
     }
 
     while((bytesread = read(reader, buffer, file_size)) < 0 && (errno == EINTR))
